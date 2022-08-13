@@ -54,13 +54,13 @@ pub fn load() {
     );
 
     add_asset(
-        &["/static/js/main.9daa17b3.chunk.js"],
+        &["/static/js/main.6013ab07.chunk.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/static/js/main.9daa17b3.chunk.js.gzip").to_vec(),
+        include_bytes!("../../build/static/js/main.6013ab07.chunk.js.gzip").to_vec(),
     );
 
     add_asset(
@@ -74,13 +74,13 @@ pub fn load() {
     );
 
     add_asset(
-        &["/static/js/2.b41ec506.chunk.js"],
+        &["/static/js/2.60b25344.chunk.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/static/js/2.b41ec506.chunk.js.gzip").to_vec(),
+        include_bytes!("../../build/static/js/2.60b25344.chunk.js.gzip").to_vec(),
     );
 
     add_asset(
