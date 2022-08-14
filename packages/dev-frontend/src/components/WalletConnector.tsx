@@ -4,11 +4,14 @@ import { AbstractConnector } from "@web3-react/abstract-connector";
 import { Button, Text, Flex, Link, Box } from "theme-ui";
 
 import { injectedConnector } from "../connectors/injectedConnector";
+import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
+import { WalletLinkConnector } from "@web3-react/walletlink-connector";
 import { useAuthorizedConnection } from "../hooks/useAuthorizedConnection";
+import { getConfig } from "../config/";
 
 import { RetryDialog } from "./RetryDialog";
 import { ConnectionConfirmationDialog } from "./ConnectionConfirmationDialog";
-import { MetaMaskIcon } from "./MetaMaskIcon";
+import { MetaMaskIcon, WalletConnectIcon, CoinbaseIcon } from "./Icons";
 import { Icon } from "./Icon";
 import { Modal } from "./Modal";
 
@@ -117,26 +120,58 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children, load
 
   return (
     <>
-      <Flex sx={{ height: "100vh", justifyContent: "center", alignItems: "center" }}>
-        <Button
-          onClick={() => {
-            dispatch({ type: "startActivating", connector: injectedConnector });
-            activate(injectedConnector);
-          }}
-        >
-          {isMetaMask ? (
-            <>
-              <MetaMaskIcon />
-              <Box sx={{ ml: 2 }}>Connect to MetaMask</Box>
-            </>
-          ) : (
-            <>
-              <Icon name="plug" size="lg" />
-              <Box sx={{ ml: 2 }}>Connect wallet</Box>
-            </>
-          )}
-        </Button>
-      </Flex>
+        <Flex sx={{ height: "100vh", justifyContent: "center", alignItems: "center" }}>
+            <div style={{display: "flex", flexDirection: "column"}}>
+                <h1>Immutable Liquity Frontend</h1>
+                &nbsp;
+                <Button
+                    onClick={async () => {
+                        const config = await getConfig();
+                        const params = {
+                            infuraId: config.infuraApiKey,
+                            bridge: "https://bridge.walletconnect.org",
+                            qrcode: true,
+                        };
+                        const WalletConnect = new WalletConnectConnector(params);
+                        activate(WalletConnect);
+                    }}><WalletConnectIcon />
+                    <Box sx={{ ml: 2 }}>WalletConnect</Box>
+                </Button>
+                &nbsp;
+                <Button
+                    onClick={() => {
+                        dispatch({ type: "startActivating", connector: injectedConnector });
+                        activate(injectedConnector);
+                    }}
+                >
+                    {isMetaMask ? (
+                        <>
+                            <MetaMaskIcon />
+                            <Box sx={{ ml: 2 }}>Connect to MetaMask</Box>
+                        </>
+                    ) : (
+                        <>
+                            <Icon name="plug" size="lg" />
+                            <Box sx={{ ml: 2 }}>Connect wallet</Box>
+                        </>
+                    )}
+                </Button>
+                &nbsp;
+                <Button
+                    onClick={async () => {
+                        const config = await getConfig();
+                        const CoinbaseWallet = new WalletLinkConnector({
+                            url: `https://mainnet.infura.io/v3/${config.infuraApiKey}`,
+                            appName: "Immutable Liquity Frontend",
+                            supportedChainIds: [1, 3, 4, 5, 42]
+                        });
+                        activate(CoinbaseWallet);
+                    }}>
+                    <CoinbaseIcon />
+                    <Box sx={{ ml: 2 }}>Coinbase</Box>
+                </Button>
+            </div>
+        </Flex>
 
       {connectionState.type === "failed" && (
         <Modal>
