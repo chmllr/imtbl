@@ -1,3 +1,4 @@
+import React from "react";
 import { Container } from "theme-ui";
 
 import { Trove } from "../components/Trove/Trove";
@@ -7,18 +8,27 @@ import { PriceManager } from "../components/PriceManager";
 import { Staking } from "../components/Staking/Staking";
 import { BondsTable } from "../components/Bonds/BondsTable";
 
-export const Dashboard: React.FC = () => (
-  <Container variant="columns">
-    <Container variant="left">
-      <BondsTable />
-      <Trove />
-      <Stability />
-      <Staking />
-    </Container>
+export const Dashboard: React.FC = () => {
+  const featuresVisibilityKey = "feature-visibility";
+  const params = new URLSearchParams(window.location.search);
+  const feature = JSON.parse(
+    localStorage.getItem(featuresVisibilityKey) ||
+      JSON.stringify({"bonds": true, "trove": true, "sp": true, "staking": true })
+  );
+  const show = (key:any) => params.get(key) !== "0" && feature[key];
+  return (
+        <Container variant="columns">
+            <Container variant="left">
+                {show("bonds") && <BondsTable />}
+                {show("trove") && <Trove />}
+                {show("sp") && <Stability />}
+                {show("staking") && <Staking />}
+            </Container>
 
-    <Container variant="right">
-      <SystemStats />
-      <PriceManager />
-    </Container>
-  </Container>
-);
+            <Container variant="right">
+                <SystemStats />
+                <PriceManager />
+            </Container>
+        </Container>
+  );
+};

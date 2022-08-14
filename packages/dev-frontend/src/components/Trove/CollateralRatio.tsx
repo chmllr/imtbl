@@ -35,7 +35,7 @@ export const CollateralRatio: React.FC<CollateralRatioProps> = ({ value, change 
               ? "warning"
               : value?.lte(1.2)
               ? "danger"
-              : "muted"
+              : "text"
           }
           pendingAmount={
             change?.positive?.absoluteValue?.gt(10)

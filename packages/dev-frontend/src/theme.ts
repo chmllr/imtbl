@@ -11,20 +11,20 @@ const baseColors = {
 };
 
 const colors = {
-  primary: baseColors.blue,
-  secondary: baseColors.purple,
+  primary: baseColors.green,
+  secondary: baseColors.yellow,
   accent: baseColors.cyan,
 
   success: baseColors.green,
   warning: baseColors.yellow,
   danger: baseColors.red,
   dangerHover: baseColors.lightRed,
-  info: baseColors.blue,
-  invalid: "pink",
+  info: baseColors.green,
+  invalid: baseColors.lightRed,
 
-  text: "#293147",
-  background: "white",
-  muted: "#eaebed",
+  text: "#ececce",
+  background: "#222222",
+  muted: "#111111",
   highlight: "#efeffe"
 };
 
@@ -32,7 +32,6 @@ const buttonBase: ThemeUIStyleObject = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-
   ":enabled": { cursor: "pointer" }
 };
 
@@ -42,7 +41,7 @@ const button: ThemeUIStyleObject = {
   px: "32px",
   py: "12px",
 
-  color: "white",
+  color: "#222222",
   border: 1,
 
   fontWeight: "bold",
@@ -88,7 +87,6 @@ const card: ThemeUIStyleObject = {
   position: "relative",
   mt: cardGapY,
   border: 1,
-  boxShadow: [1, null, 2]
 };
 
 const infoCard: ThemeUIStyleObject = {
@@ -96,8 +94,9 @@ const infoCard: ThemeUIStyleObject = {
 
   padding: 3,
 
-  borderColor: "rgba(122,199,240,0.4)",
-  background: "linear-gradient(200deg, #d4d9fc, #cae9f9)",
+  borderColor: "#111111",
+  borderRadius: "5px",
+  background: "#111111",
 
   h2: {
     mb: 2,
@@ -120,7 +119,6 @@ const formCell: ThemeUIStyleObject = {
   border: 1,
   borderColor: "muted",
   borderRadius: 0,
-  boxShadow: [1, 2]
 };
 
 const overlay: ThemeUIStyleObject = {
@@ -142,7 +140,7 @@ const modalOverlay: ThemeUIStyleObject = {
 };
 
 const headerGradient: ThemeUIStyleObject = {
-  background: `linear-gradient(90deg, ${colors.background}, ${colors.muted})`
+  background: "#111111"
 };
 
 const theme: Theme = {
@@ -183,8 +181,6 @@ const theme: Theme = {
   colors,
 
   borders: [0, "1px solid", "2px solid"],
-
-  shadows: ["0", "0px 4px 8px rgba(41, 49, 71, 0.1)", "0px 8px 16px rgba(41, 49, 71, 0.1)"],
 
   text: {
     address: {
@@ -347,7 +343,6 @@ const theme: Theme = {
       py: [2, "12px", "12px"],
 
       ...headerGradient,
-      boxShadow: [1, "none"]
     },
 
     footer: {
@@ -398,7 +393,7 @@ const theme: Theme = {
     disabledOverlay: {
       ...overlay,
 
-      bg: "rgba(255, 255, 255, 0.5)"
+      bg: "rgba(0, 0, 0, 0.5)"
     },
 
     modalOverlay: {
@@ -421,7 +416,7 @@ const theme: Theme = {
 
       display: ["block", "none"],
 
-      bg: "rgba(255, 255, 255, 0.8)"
+      bg: "rgba(0, 0, 0, 0.8)"
     },
 
     infoMessage: {
