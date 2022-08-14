@@ -271,8 +271,6 @@ export const RiskyTroves: React.FC<RiskyTrovesProps> = ({ pageSize }) => {
                                 right: 0,
                                 width: "50px",
                                 height: "100%",
-                                background:
-                                  "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)"
                               }}
                             />
                           </Text>
