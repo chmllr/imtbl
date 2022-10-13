@@ -19,10 +19,10 @@ export const Dashboard: React.FC = () => {
   return (
         <Container variant="columns">
             <Container variant="left">
-                {show("bonds") && <BondsTable />}
                 {show("trove") && <Trove />}
                 {show("sp") && <Stability />}
                 {show("staking") && <Staking />}
+                {show("bonds") && <BondsTable />}
             </Container>
 
             <Container variant="right">
