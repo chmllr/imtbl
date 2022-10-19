@@ -10,6 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@fortawesome/react-fontawesome": "0.1.14",
     "@liquity/chicken-bonds": "file:.yalc/@liquity/chicken-bonds",
+    "@metamask/eth-sig-util": "5.0.0",
     "@popperjs/core": "2.9.1",
     "@testing-library/dom": "7.30.0",
     "@testing-library/jest-dom": "5.11.9",
@@ -63,16 +64,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    "chrome >= 67",
+    "edge >= 79",
+    "firefox >= 68",
+    "opera >= 54",
+    "safari >= 14"
+  ]
 }
