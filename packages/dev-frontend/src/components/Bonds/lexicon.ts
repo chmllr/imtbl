@@ -133,8 +133,7 @@ export const CLAIM_BOND = {
 
 export const BLUSD_MARKET_PRICE = {
   term: "Market price",
-  description:
-    "The current price of bLUSD according to the bLUSD Curve pool. As long as the bLUSD pool is empty, the market price shown corresponds to the initial Curve v2 price parameter used to initalize the pool."
+  description: "The current price of bLUSD according to the bLUSD Curve pool."
 };
 
 export const BLUSD_FAIR_PRICE = {
@@ -178,6 +177,12 @@ export const BLUSD_FLOOR_PRICE = {
 export const BLUSD_APR = {
   term: "APR",
   description: "The APR of bLUSD, based on the yield generated from each bucket in the Treasury."
+};
+
+export const BLUSD_LP_APR = {
+  term: "LP APR",
+  description:
+    "The APR from providing liquidity to the bLUSD/LUSD-3CRV pool. A combination of LUSD rewards from Chicken-in fees and Curve rewards."
 };
 
 export const BLUSD_YIELD_AMPLIFICATION = {

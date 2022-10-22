@@ -53,7 +53,7 @@ export const BondStats: React.FC<BondStatsProps> = () => {
         />
       </Statistic>
       <Statistic name={l.BLUSD_FLOOR_PRICE.term} tooltip={l.BLUSD_FLOOR_PRICE.description}>
-        <Metric value={protocolInfo.floorPrice.prettify(2)} unit="LUSD" />
+        <Metric value={protocolInfo.floorPrice.prettify(4)} unit="LUSD" />
       </Statistic>
       <Statistic name={l.BLUSD_APR.term} tooltip={l.BLUSD_APR.description}>
         <Metric
@@ -61,6 +61,14 @@ export const BondStats: React.FC<BondStatsProps> = () => {
             protocolInfo.bLusdApr && protocolInfo.bLusdSupply.gt(0)
               ? protocolInfo.bLusdApr.mul(100).prettify(2)
               : "N/A"
+          }
+          unit="%"
+        />
+      </Statistic>
+      <Statistic name={l.BLUSD_LP_APR.term} tooltip={l.BLUSD_LP_APR.description}>
+        <Metric
+          value={
+            protocolInfo?.bLusdLpApr !== undefined ? protocolInfo.bLusdLpApr.prettify(2) : "N/A"
           }
           unit="%"
         />
