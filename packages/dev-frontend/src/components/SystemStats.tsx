@@ -176,7 +176,7 @@ export const SystemStats: React.FC<SystemStatsProps> = ({ variant = "info", show
           <input type="checkbox" defaultChecked={feature["sp"]} onChange={() => toggleFeature("sp")} />Stability Pool &nbsp;
           <input type="checkbox" defaultChecked={feature["staking"]} onChange={() => toggleFeature("staking")} />Staking &nbsp;
           {changed && <Box sx={{marginTop: "1em"}}>
-              <Button variant="primary" onClick={() => window.location.reload()}>Save & reload</Button>
+              <Button variant="outline" onClick={() => window.location.reload()}>Reload</Button>
           </Box>}
       </Box>
 
@@ -237,6 +237,9 @@ export const SystemStats: React.FC<SystemStatsProps> = ({ variant = "info", show
                 </defs>
                 </svg>
           </Link>
+      </Box>
+      <Box sx={{marginTop: "1em", fontSize: 0}}>
+          <Button variant="outline" onClick={() => { localStorage.clear(); window.location.reload() }}>Logout</Button>
       </Box>
     </Card>
   );
