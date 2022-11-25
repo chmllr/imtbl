@@ -138,9 +138,8 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children, load
                     <div style={{display: "flex", flexDirection: "column", marginLeft: "auto", marginRight: "auto", marginTop: "4em" }}>
                         <Button
                             onClick={async () => {
-                                const config = await getConfig();
                                 const params = {
-                                    infuraId: config.infuraApiKey,
+                                    infuraId: "c2f4801e7b02433d8a8e8a2e63c175df",
                                     bridge: "https://bridge.walletconnect.org",
                                     qrcode: true,
                                 };
