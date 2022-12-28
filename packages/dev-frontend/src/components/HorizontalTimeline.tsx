@@ -13,8 +13,7 @@ const defaultCircleStyle = {
   borderRadius: "50%",
   border: "2px solid",
   borderColor: mutedGray,
-  background: "none",
-  zIndex: 1
+  background: "none"
 };
 const solidCircleStyle = {
   backgroundColor: "gray",

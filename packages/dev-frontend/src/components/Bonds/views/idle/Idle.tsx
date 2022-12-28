@@ -60,7 +60,7 @@ export const Idle: React.FC = () => {
         )}
 
         {hasBonds && (
-          <Button variant="primary" onClick={() => dispatchEvent("CREATE_BOND_PRESSED")}>
+          <Button variant="primary" style={{ marginRight: "8px" }} onClick={() => dispatchEvent("CREATE_BOND_PRESSED")}>
             Create bond
           </Button>
         )}
