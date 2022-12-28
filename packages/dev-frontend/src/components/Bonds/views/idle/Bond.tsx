@@ -84,6 +84,8 @@ export const Bond: React.FC<BondProps> = ({ bond, style }) => {
     dispatchEvent("SWAP_PRESSED", { inputToken: BLusdAmmTokenIndex.BLUSD } as SwapPressedPayload);
   };
 
+  const mobile = window.screen.availWidth < 1024;
+
   return (
     <Flex
       sx={{
@@ -93,7 +95,7 @@ export const Bond: React.FC<BondProps> = ({ bond, style }) => {
         ...style
       }}
     >
-      <Flex
+    {!mobile && <Flex
         sx={{
           flexShrink: 0,
           boxShadow: 2,
@@ -114,15 +116,15 @@ export const Bond: React.FC<BondProps> = ({ bond, style }) => {
             );
           }}
         />
-      </Flex>
+      </Flex>}
       <Card mt={[0, 0, 0, 0]} sx={{ borderRadius: 12, flexGrow: 1 }}>
         <Flex p={[2, 3]} sx={{ flexDirection: "column" }}>
           <HorizontalTimeline
-            style={{ fontSize: "14.5px", justifyContent: "center", pt: 2, mx: 3 }}
+              style={{ fontSize: mobile ? "x-small" : "medium", justifyContent: "center", pt: 2, mx: 3 }}
             events={events}
           />
 
-          <Flex mt={4} pl={3} variant="layout.actions" sx={{ justifyContent: "flex-end" }}>
+        <Flex mt={4} variant="layout.actions" sx={{ justifyContent: "flex-end", flexDirection: mobile ? "column" : "row" }}>
             <Flex
               sx={{
                 justifyContent: "flex-start",
@@ -149,7 +151,7 @@ export const Bond: React.FC<BondProps> = ({ bond, style }) => {
             </Flex>
             {bond.status === "PENDING" && <Actions bondId={bond.id} />}
             {bond.status !== "PENDING" && bond.status === "CLAIMED" && (
-              <Button variant="outline" sx={{ height: "44px" }} onClick={handleSellBLusdPressed}>
+              <Button variant="outline" sx={{ height: "44px", marginTop: mobile ? "1em" : 0 }} onClick={handleSellBLusdPressed}>
                 Sell bLUSD
               </Button>
             )}

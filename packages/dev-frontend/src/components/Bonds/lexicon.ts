@@ -120,13 +120,13 @@ export const CLAIMED_STATUS = {
 };
 
 export const CANCEL_BOND = {
-  term: "Cancel bond",
+  term: "Cancel",
   description:
     "A bond can be cancelled at any time to recover the initially deposited LUSD amount while forgoing the accrued bLUSD."
 };
 
 export const CLAIM_BOND = {
-  term: "Claim bond",
+  term: "Claim",
   description:
     "A bond can be claimed at any time to forgo the initially deposited LUSD amount and gain the accrued bLUSD."
 };

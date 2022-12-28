@@ -61,7 +61,7 @@ export const Idle: React.FC = () => {
 
         {hasBonds && (
           <Button variant="primary" onClick={() => dispatchEvent("CREATE_BOND_PRESSED")}>
-            Create another bond
+            Create bond
           </Button>
         )}
       </Flex>

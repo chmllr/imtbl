@@ -23,6 +23,7 @@ export const Actions: React.FC<ActionsProps> = ({ bondId, disabled = false }) =>
   };
 
   const cursor = disabled ? "auto" : CHICKEN_EMOJI_CURSOR;
+  const mobile = window.screen.availWidth < 1024;
 
   return (
     <>
@@ -31,7 +32,8 @@ export const Actions: React.FC<ActionsProps> = ({ bondId, disabled = false }) =>
         variant="outline"
         sx={{ height: "44px" }}
         style={{
-          cursor
+          cursor,
+          marginTop: mobile ? "1em" : 0,
         }}
         onClick={handleCancelBondPressed}
       >
@@ -57,7 +59,8 @@ export const Actions: React.FC<ActionsProps> = ({ bondId, disabled = false }) =>
           variant="outline"
           sx={{ height: "44px" }}
           style={{
-            cursor: disabled ? "auto" : cursor
+            cursor: disabled ? "auto" : cursor,
+            marginTop: mobile ? "1em" : 0,
           }}
           onClick={handleClaimBondPressed}
         >
