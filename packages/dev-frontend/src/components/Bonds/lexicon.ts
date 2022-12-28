@@ -40,13 +40,13 @@ export const BOND_NFT = {
 };
 
 export const BREAK_EVEN_TIME = {
-  term: "Break-even time",
+  term: "Break-even",
   description:
     "Estimated time at which the bond will have accrued enough bLUSD to offset the LUSD cost of the bond, under current market prices."
 };
 
 export const OPTIMUM_REBOND_TIME = {
-  term: "Rebond time",
+  term: "Rebond",
   description:
     "Estimated optimum time to claim the bond, sell the bLUSD for LUSD, and then bond again, to maximize your return under current market prices."
 };
@@ -83,7 +83,7 @@ export const ACCRUED_AMOUNT = {
 };
 
 export const MARKET_VALUE = {
-  term: "Accrued value",
+  term: "Accrued",
   description:
     "Current market value of the accrued bLUSD. The bLUSD market price can fluctuate but will always be higher than the floor price under rational market conditions."
 };
