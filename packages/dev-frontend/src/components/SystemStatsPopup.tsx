@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
-import { Container, Flex, Button } from "theme-ui";
+import { Card, Container, Flex, Button } from "theme-ui";
 
 import { LiquityStoreState } from "@liquity/lib-base";
 import { useLiquitySelector } from "@liquity/lib-react";
 
 import { Icon } from "./Icon";
 import { SystemStats } from "./SystemStats";
+import {BondStats} from "./BondStats";
+import {ImtblControls} from "./ImtblControls";
 
 const select = ({ total, price }: LiquityStoreState) => ({ total, price });
 
@@ -58,7 +60,12 @@ export const SystemStatsPopup: React.FC = () => {
             }
           }}
         >
-          <SystemStats variant="infoPopup" showBalances />
+            <Card variant="infoPopup">
+                <br />
+                <SystemStats variant="infoBlock" showBalances />
+                <BondStats variant="infoBlock" />
+                <ImtblControls variant="infoBlock" />
+            </Card>
         </Container>
       )}
     </>

@@ -281,6 +281,12 @@ const theme: Theme = {
       display: ["none", "block"]
     },
 
+    infoBlock: {
+      ...infoCard,
+
+      display: ["block"]
+    },
+
     infoPopup: {
       ...infoCard,
 

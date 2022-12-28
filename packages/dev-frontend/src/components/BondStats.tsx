@@ -25,13 +25,13 @@ const Metric: React.FC<MetricProps> = ({ value, unit }) => {
   );
 };
 
-export const BondStats: React.FC<BondStatsProps> = () => {
+export const BondStats: React.FC<BondStatsProps> = ({ variant = "info" }) => {
   const { stats, protocolInfo } = useBondView();
 
   if (stats === undefined || protocolInfo === undefined) return null;
 
   return (
-    <Card variant="info">
+    <Card {...{ variant }}>
       <Heading sx={{ fontweight: "bold" }}>LUSD bonds</Heading>
 
       <Heading as="h2" sx={{ mt: 3, fontWeight: "body" }}>
