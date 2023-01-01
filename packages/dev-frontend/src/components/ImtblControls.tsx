@@ -76,10 +76,10 @@ export const ImtblControls: React.FC<any> = ({ variant = "info" }) => {
         Modules
       </Heading>
       <Box sx={{ fontSize: 0 }}>
-          <input type="checkbox" defaultChecked={feature["bonds"]} onChange={() => toggleFeature("bonds")} />Bonds &nbsp;
           <input type="checkbox" defaultChecked={feature["trove"]} onChange={() => toggleFeature("trove")} />Trove &nbsp;
           <input type="checkbox" defaultChecked={feature["sp"]} onChange={() => toggleFeature("sp")} />Stability Pool &nbsp;
           <input type="checkbox" defaultChecked={feature["staking"]} onChange={() => toggleFeature("staking")} />Staking &nbsp;
+          <input type="checkbox" defaultChecked={feature["bonds"]} onChange={() => toggleFeature("bonds")} />Bonds &nbsp;
           {changed && <Box sx={{marginTop: "1em"}}>
               <Button variant="outline" onClick={() => window.location.reload()}>Reload</Button>
           </Box>}
