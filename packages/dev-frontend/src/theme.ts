@@ -301,7 +301,14 @@ const theme: Theme = {
 
     tooltip: {
       fontWeight: "body",
-      zIndex: 1
+      marginY: 1,
+
+      a: {
+        color: "accent",
+        ":hover": {
+          opacity: 0.8
+        }
+      }
     }
   },
 

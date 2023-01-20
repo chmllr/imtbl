@@ -4,8 +4,10 @@ import { AddressZero } from "@ethersproject/constants";
 import { LiquityStoreState } from "@liquity/lib-base";
 import { useLiquitySelector } from "@liquity/lib-react";
 
+import { COIN, GT } from "../strings";
 import { useLiquity } from "../hooks/LiquityContext";
 import { Statistic } from "./Statistic";
+import * as l from "../lexicon";
 
 const GitHubCommit: React.FC<{ children?: string }> = ({ children }) =>
   children?.match(/[0-9a-f]{40}/) ? (
@@ -64,14 +66,8 @@ export const ImtblControls: React.FC<any> = ({ variant = "info" }) => {
     <Card {...{ variant }}>
       <Heading>IMTBL</Heading>
 
-      {kickbackRatePct && (
-        <Statistic
-          name="Kickback Rate"
-          tooltip="A rate between 0 and 100% set by the Frontend Operator that determines the fraction of LQTY that will be paid out as a kickback to the Stability Providers using the frontend."
-        >
-          {kickbackRatePct}%
-        </Statistic>
-      )}
+      {kickbackRatePct && <Statistic lexicon={l.KICKBACK_RATE}>{kickbackRatePct}%</Statistic>}
+      
       <Heading as="h2" sx={{ mt: 3, fontWeight: "body" }}>
         Modules
       </Heading>
