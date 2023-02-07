@@ -4,7 +4,6 @@ import { AddressZero } from "@ethersproject/constants";
 import { LiquityStoreState } from "@liquity/lib-base";
 import { useLiquitySelector } from "@liquity/lib-react";
 
-import { COIN, GT } from "../strings";
 import { useLiquity } from "../hooks/LiquityContext";
 import { Statistic } from "./Statistic";
 import * as l from "../lexicon";

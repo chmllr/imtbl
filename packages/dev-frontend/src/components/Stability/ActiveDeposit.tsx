@@ -101,9 +101,7 @@ export const ActiveDeposit: React.FC = () => {
                 />
               }
             />
-            <Flex sx={{ justifyContent: "flex-end", flex: 1 }}>
-              <Yield />
-            </Flex>
+            <Yield />
           </Flex>
         </Box>
 
