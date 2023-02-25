@@ -128,7 +128,7 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children, load
                         <br />
                         <br />
                         <div style={{marginTop: "2em", fontSize: "small", width: "100%", textAlign: "center" }}>
-                            <Link href="https://taggr.top/#/journal/imtbl">Blog</Link>
+                            <Link href="https://taggr.link/#/journal/imtbl">Blog</Link>
                             &nbsp;&bull;&nbsp;
                             <Link href="https://github.com/chmllr/imtbl-be">GitHub</Link>
                             &nbsp;&bull;&nbsp;

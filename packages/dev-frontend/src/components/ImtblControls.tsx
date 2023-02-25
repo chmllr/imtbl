@@ -94,7 +94,7 @@ export const ImtblControls: React.FC<any> = ({ variant = "info" }) => {
           )}
         </Box>
         <Box sx={{ fontSize: 0 }}>IC canister: <Link href="https://dashboard.internetcomputer.org/canister/vfu7d-vyaaa-aaaap-aajiq-cai">vfu7d-vyaaa-aaaap-aajiq-cai</Link></Box>
-        <Box sx={{ fontSize: 0 }}>Updates & contact: <Link href="https://taggr.top/#/journal/imtbl">imtbl@TAGGR</Link></Box>
+        <Box sx={{ fontSize: 0 }}>Updates & contact: <Link href="https://taggr.link/#/journal/imtbl">imtbl@TAGGR</Link></Box>
       </Box>
       <br />
       <Box>
