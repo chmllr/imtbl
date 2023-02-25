@@ -98,10 +98,6 @@ export const SystemStats: React.FC<SystemStatsProps> = ({ variant = "info", show
         {total.collateralRatioIsBelowCritical(price) ? <Box color="danger">Yes</Box> : "No"}
       </Statistic>
       {}
-
-      <Heading as="h2" sx={{ mt: 3, fontWeight: "body" }}>
-        Frontend
-      </Heading>
     </Card>
   );
 };
