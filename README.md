@@ -6,6 +6,8 @@ An immutable Liquity [frontend](https://vfu7d-vyaaa-aaaap-aajiq-cai.ic0.app) run
 
     yarn start-dev-frontend
 
-## Build frontend for production
+## Reproduce the build
 
-    yarn build
+    make
+
+Make sure the printed hash matches the hash on https://dashboard.internetcomputer.org/canister/vfu7d-vyaaa-aaaap-aajiq-cai.
