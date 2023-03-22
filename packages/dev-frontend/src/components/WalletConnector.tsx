@@ -130,9 +130,11 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children, load
                         <div style={{marginTop: "2em", fontSize: "small", width: "100%", textAlign: "center" }}>
                             <Link href="https://taggr.link/#/journal/imtbl">Blog</Link>
                             &nbsp;&bull;&nbsp;
-                            <Link href="https://github.com/chmllr/imtbl-be">GitHub</Link>
+                            <Link href="https://github.com/chmllr/imtbl">Code</Link>
                             &nbsp;&bull;&nbsp;
-                            <Link href="https://dashboard.internetcomputer.org/canister/vfu7d-vyaaa-aaaap-aajiq-cai">Canister Id</Link>
+                            <Link href="https://dashboard.internetcomputer.org/canister/vfu7d-vyaaa-aaaap-aajiq-cai">Canister</Link>
+                            &nbsp;&bull;&nbsp;
+                            <Link href="https://vfu7d-vyaaa-aaaap-aajiq-cai.icp0.io">Direct IC Link</Link>
                         </div>
                     </Box>
                     <div style={{display: "flex", flexDirection: "column", marginLeft: "auto", marginRight: "auto", marginTop: "4em" }}>
