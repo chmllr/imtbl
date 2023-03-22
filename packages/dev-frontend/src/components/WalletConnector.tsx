@@ -4,14 +4,11 @@ import { AbstractConnector } from "@web3-react/abstract-connector";
 import { Button, Text, Flex, Link, Box } from "theme-ui";
 
 import { injectedConnector } from "../connectors/injectedConnector";
-import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
-import { WalletLinkConnector } from "@web3-react/walletlink-connector";
 import { useAuthorizedConnection } from "../hooks/useAuthorizedConnection";
-import { getConfig } from "../config/";
 
 import { RetryDialog } from "./RetryDialog";
 import { ConnectionConfirmationDialog } from "./ConnectionConfirmationDialog";
-import { MetaMaskIcon, WalletConnectIcon, CoinbaseIcon } from "./Icons";
+import { MetaMaskIcon } from "./Icons";
 import { Icon } from "./Icon";
 import { Modal } from "./Modal";
 
@@ -139,19 +136,6 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children, load
                     </Box>
                     <div style={{display: "flex", flexDirection: "column", marginLeft: "auto", marginRight: "auto", marginTop: "4em" }}>
                         <Button
-                            onClick={async () => {
-                                const params = {
-                                    infuraId: "c2f4801e7b02433d8a8e8a2e63c175df",
-                                    bridge: "https://bridge.walletconnect.org",
-                                    qrcode: true,
-                                };
-                                const WalletConnect = new WalletConnectConnector(params);
-                                activate(WalletConnect);
-                            }}><WalletConnectIcon />
-                            <Box sx={{ ml: 2 }}>WalletConnect</Box>
-                        </Button>
-                        &nbsp;
-                        <Button
                             onClick={() => {
                                 dispatch({ type: "startActivating", connector: injectedConnector });
                                 activate(injectedConnector);
@@ -168,20 +152,6 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children, load
                                     <Box sx={{ ml: 2 }}>Connect wallet</Box>
                                 </>
                             )}
-                        </Button>
-                        &nbsp;
-                        <Button
-                            onClick={async () => {
-                                const config = await getConfig();
-                                const CoinbaseWallet = new WalletLinkConnector({
-                                    url: `https://mainnet.infura.io/v3/${config.infuraApiKey}`,
-                                    appName: "IMTBL",
-                                    supportedChainIds: [1, 3, 4, 5, 42]
-                                });
-                                activate(CoinbaseWallet);
-                            }}>
-                            <CoinbaseIcon />
-                            <Box sx={{ ml: 2 }}>Coinbase</Box>
                         </Button>
                     </div>
                     <Link style={{ marginTop: "4em", marginLeft: "auto", marginRight: "auto"}} href="https://internetcomputer.org">
