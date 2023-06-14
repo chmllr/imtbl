@@ -5,6 +5,7 @@ all:
 	git rev-parse HEAD
 
 build:
+	yarn add hardhat
 	yarn
 	yarn build:dev-frontend
 	cd ./canister/ && make
