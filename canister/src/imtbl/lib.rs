@@ -74,15 +74,6 @@ pub fn load() {
     );
 
     add_asset(
-        &["/manifest.json"],
-        vec![
-            ("Content-Type".to_string(), "application/json".to_string()),
-            ("Cache-Control".to_string(), "public".to_string()),
-        ],
-        include_bytes!("../../build/manifest.json").to_vec(),
-    );
-
-    add_asset(
         &["/.well-known/ic-domains"],
         Default::default(),
         "imtbl.top".as_bytes().to_vec(),

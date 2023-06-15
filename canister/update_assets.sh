@@ -1,8 +1,7 @@
 #!/bin/bash
 
 rm -rf ./build
-cp -rf ../packages/dev-frontend/build .
-rm ./build/asset-manifest.json
+cp -rf ../packages/dev-frontend/dist build
 rm -rf ./build/icons
 rm ./build/robots.txt
 
@@ -12,8 +11,8 @@ find ./build -iname "*.txt" -delete
 LINES=""
 
 for t in "js" "css"; do
-    P="build/static/$t"
-    for s in $P/*; do
+    P="build/assets"
+    for s in $P/*.$t; do
         gzip -n9 $s
         read -r -d '' LINE << EOT
 add_asset(
