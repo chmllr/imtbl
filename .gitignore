@@ -17,7 +17,7 @@ node_modules
 .eslintcache
 
 # Don't track NPM lockfile (we use Yarn)
-package-lock.json
+packages/dev-frontend/package-lock.json
 
 # Don't track hardhat mainnet fork cache
 cache
