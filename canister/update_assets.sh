@@ -30,31 +30,6 @@ $LINE"
     done
 done
 
-for s in build/bonds/*; do
-    read -r -d '' LINE << EOT
-    add_asset(
-        &["/${s/build\//}"],
-        vec![
-            ("Content-Type".to_string(), "image/png".to_string()),
-            ("Cache-Control".to_string(), "public".to_string()),
-        ],
-        include_bytes!("../../$s").to_vec(),
-    );
-EOT
-    LINES="$LINES
-    $LINE"
-done
-
-read -r -d '' LINE << EOT
-add_asset(
-    &["/ic.svg"],
-    vec![
-        ("Content-Type".to_string(), "image/svg+xml".to_string()),
-        ("Cache-Control".to_string(), "public".to_string()),
-    ],
-    include_bytes!("../../build/ic.svg").to_vec(),
-);
-EOT
 LINES="$LINES
 $LINE"
 

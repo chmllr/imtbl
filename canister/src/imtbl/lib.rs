@@ -1,4 +1,5 @@
 use ic_cdk_macros::*;
+use base64::{engine::general_purpose, Engine as _};
 pub mod asset_loader;
 use candid::CandidType;
 use ic_certified_map::{labeled, labeled_hash, AsHashTree, Hash, RbTree};
@@ -53,6 +54,15 @@ pub fn load() {
             ("Cache-Control".to_string(), "public".to_string()),
         ],
         include_bytes!("../../build/favicon.png").to_vec(),
+    );
+
+    add_asset(
+        &["/ic.svg"],
+        vec![
+        ("Content-Type".to_string(), "image/svg+xml".to_string()),
+            ("Cache-Control".to_string(), "public".to_string()),
+        ],
+        include_bytes!("../../build/ic.svg").to_vec(),
     );
 
     add_asset(
@@ -134,8 +144,8 @@ fn certificate_header(path: &str) -> (String, String) {
         "IC-Certificate".to_string(),
         format!(
             "certificate=:{}:, tree=:{}:",
-            base64::encode(&certificate),
-            base64::encode(&serializer.into_inner())
+            general_purpose::STANDARD.encode(certificate),
+            general_purpose::STANDARD.encode(serializer.into_inner())
         ),
     )
 }
