@@ -1,8 +1,8 @@
-# IMTBL
+# IMTBL V3
 
 [<img alt="DeFiSafety Badge" width="96px" align="right" src="images/defisafety-badge.png" />](https://www.defisafety.com/app/pqrs/376)
 
-An immutable Liquity [frontend](https://vgbso-kaaaa-aaaap-ablqq-cai.icp0.io) running on the [Internet Computer](https://internetcomputer.org). Kickback rate 99%.
+An immutable Liquity V1 [frontend](https://gx7ng-kaaaa-aaaap-akpmq-cai.icp0.io) running on the [Internet Computer](https://internetcomputer.org). Kickback rate 99%.
 
 ## Start frontend in development mode
 
@@ -12,4 +12,4 @@ An immutable Liquity [frontend](https://vgbso-kaaaa-aaaap-ablqq-cai.icp0.io) run
 
     make
 
-Make sure the printed hash matches the hash on https://dashboard.internetcomputer.org/canister/vgbso-kaaaa-aaaap-ablqq-cai.
+Make sure the printed hash matches the hash on https://dashboard.internetcomputer.org/canister/gx7ng-kaaaa-aaaap-akpmq-cai.

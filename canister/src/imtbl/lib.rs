@@ -1,5 +1,5 @@
-use ic_cdk_macros::*;
 use base64::{engine::general_purpose, Engine as _};
+use ic_cdk_macros::*;
 pub mod asset_loader;
 use candid::CandidType;
 use ic_certified_map::{labeled, labeled_hash, AsHashTree, Hash, RbTree};
@@ -59,7 +59,7 @@ pub fn load() {
     add_asset(
         &["/ic.svg"],
         vec![
-        ("Content-Type".to_string(), "image/svg+xml".to_string()),
+            ("Content-Type".to_string(), "image/svg+xml".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
         include_bytes!("../../build/ic.svg").to_vec(),
@@ -86,7 +86,7 @@ pub fn load() {
     add_asset(
         &["/.well-known/ic-domains"],
         Default::default(),
-        "imtbl.top".as_bytes().to_vec(),
+        "lusd.imtbl.org".as_bytes().to_vec(),
     );
 
     crate::asset_loader::load_dynamic_assets();
