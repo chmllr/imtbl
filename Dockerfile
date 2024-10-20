@@ -1,14 +1,12 @@
-FROM ubuntu:22.04
+FROM --platform=linux/amd64 ubuntu:22.04
 
 ENV NVM_DIR=/root/.nvm
 ENV NVM_VERSION=v0.39.1
-ENV NODE_VERSION=16.13.0
+ENV NODE_VERSION=18.12.0
 
 ENV RUSTUP_HOME=/opt/rustup
 ENV CARGO_HOME=/opt/cargo
-ENV RUST_VERSION=1.70.0
-
-ENV DFX_VERSION=0.15.0
+ENV RUST_VERSION=1.79.0
 
 # Install a basic environment needed for our build tools
 RUN apt -yq update && \
@@ -34,7 +32,8 @@ RUN curl --fail https://sh.rustup.rs -sSf \
 RUN cargo install --version 0.5.1 ic-wasm
 
 # Install dfx
-RUN sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+RUN DFXVM_INIT_YES=1 DFX_VERSION="0.23.0" sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+ENV export PATH=${HOME}/.local/share/dfx/bin:${PATH}
 
 COPY . imtbl
 WORKDIR "/imtbl"
