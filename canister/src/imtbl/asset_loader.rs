@@ -6,103 +6,121 @@ pub fn load_dynamic_assets() {
 
 
 add_asset(
-        &["/assets/hooks.module-1a3b3e2f.js"],
+        &["/assets/ccip-3p5B4Go2.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/hooks.module-1a3b3e2f.js.gz").to_vec(),
+        include_bytes!("../../build/assets/ccip-3p5B4Go2.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/http-d7aff5a7.js"],
+        &["/assets/hooks.module-BHoS1KCI.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/http-d7aff5a7.js.gz").to_vec(),
+        include_bytes!("../../build/assets/hooks.module-BHoS1KCI.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-5d0f1922.js"],
+        &["/assets/index-BoyfZQ9w.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-5d0f1922.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-BoyfZQ9w.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-84a5a395.js"],
+        &["/assets/index-CBLIvMZP.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-84a5a395.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-CBLIvMZP.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-89f592b8.js"],
+        &["/assets/index-CCMT5YVZ.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-89f592b8.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-CCMT5YVZ.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-983f8499.js"],
+        &["/assets/index-CbG_n1Fb.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-983f8499.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-CbG_n1Fb.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-a23a08c8.js"],
+        &["/assets/index-Dr64gClu.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-a23a08c8.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-Dr64gClu.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index.es-93a294c8.js"],
+        &["/assets/index-KvUUuVyC.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index.es-93a294c8.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-KvUUuVyC.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/tslib-da697055.js"],
+        &["/assets/index-pwcIzNEs.js"],
         vec![
             ("Content-Type".to_string(), "text/javascript".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/tslib-da697055.js.gz").to_vec(),
+        include_bytes!("../../build/assets/index-pwcIzNEs.js.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-fbdd9b61.css"],
+        &["/assets/index.es-BwJy3iFu.js"],
+        vec![
+            ("Content-Type".to_string(), "text/javascript".to_string()),
+            ("Content-Encoding".to_string(), "gzip".to_string()),
+            ("Cache-Control".to_string(), "public".to_string()),
+        ],
+        include_bytes!("../../build/assets/index.es-BwJy3iFu.js.gz").to_vec(),
+    );
+add_asset(
+        &["/assets/secp256k1-wzUcJCSr.js"],
+        vec![
+            ("Content-Type".to_string(), "text/javascript".to_string()),
+            ("Content-Encoding".to_string(), "gzip".to_string()),
+            ("Cache-Control".to_string(), "public".to_string()),
+        ],
+        include_bytes!("../../build/assets/secp256k1-wzUcJCSr.js.gz").to_vec(),
+    );
+add_asset(
+        &["/assets/index-DheiDXl9.css"],
         vec![
             ("Content-Type".to_string(), "text/css".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-fbdd9b61.css.gz").to_vec(),
+        include_bytes!("../../build/assets/index-DheiDXl9.css.gz").to_vec(),
     );
 add_asset(
-        &["/assets/index-fbdd9b61.css"],
+        &["/assets/index-DheiDXl9.css"],
         vec![
             ("Content-Type".to_string(), "text/css".to_string()),
             ("Content-Encoding".to_string(), "gzip".to_string()),
             ("Cache-Control".to_string(), "public".to_string()),
         ],
-        include_bytes!("../../build/assets/index-fbdd9b61.css.gz").to_vec(),
+        include_bytes!("../../build/assets/index-DheiDXl9.css.gz").to_vec(),
     );
 
 }

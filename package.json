@@ -104,6 +104,6 @@
   },
   "packageManager": "yarn@3.5.1",
   "dependencies": {
-    "hardhat": "^2.17.4"
+    "hardhat": "^2.22.13"
   }
 }
