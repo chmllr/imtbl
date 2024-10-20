@@ -2,9 +2,9 @@ import { ConnectKitButton } from "connectkit";
 import { Box, Button, Flex } from "theme-ui";
 import { Icon } from "./Icon";
 
-type WalletConnectorProps = {
-    loader?: React.ReactNode;
-};
+type WalletConnectorProps = React.PropsWithChildren<{
+  loader?: React.ReactNode;
+}>;
 
 export const WalletConnector: React.FC<WalletConnectorProps> = ({ children }) => {
     return (

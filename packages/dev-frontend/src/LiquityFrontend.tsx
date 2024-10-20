@@ -23,6 +23,7 @@ import "tippy.js/dist/tippy.css"; // Tooltip default style
 type LiquityFrontendProps = {
     loader?: React.ReactNode;
 };
+
 export const LiquityFrontend: React.FC<LiquityFrontendProps> = ({ loader }) => {
     const { account, provider, liquity } = useLiquity();
 

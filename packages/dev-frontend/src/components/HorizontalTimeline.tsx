@@ -75,13 +75,16 @@ type EventProps = EventType & {
   isPast: boolean;
 };
 
-type LabelProps = {
+type LabelProps = React.PropsWithChildren<{
   subLabel?: React.ReactNode;
   description?: React.ReactNode;
   style?: ThemeUIStyleObject;
-};
+}>;
 
-type SubLabelProps = { style?: ThemeUIStyleObject };
+type SubLabelProps = React.PropsWithChildren<{
+  style?: ThemeUIStyleObject;
+}>;
+
 export const SubLabel: React.FC<SubLabelProps> = ({ style, children }) => (
   <Flex
     sx={{

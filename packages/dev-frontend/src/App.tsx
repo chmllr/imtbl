@@ -1,10 +1,11 @@
 import React from "react";
-import { createClient, WagmiConfig } from "wagmi";
-import { mainnet, goerli, localhost } from "wagmi/chains";
-import { ConnectKitProvider, getDefaultClient } from "connectkit";
-import { Flex, Heading, ThemeProvider, Paragraph, Link } from "theme-ui";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider, createConfig, fallback, http } from "wagmi";
+import { injected } from "wagmi/connectors";
+import { mainnet, goerli, sepolia, localhost } from "wagmi/chains";
+import { ConnectKitProvider, getDefaultConfig, getDefaultConnectors } from "connectkit";
+import { Flex, Heading, ThemeUIProvider, Paragraph, Link } from "theme-ui";
 
-// import { BatchedWebSocketAugmentedWeb3Provider } from "@liquity/providers";
 import { LiquityProvider } from "./hooks/LiquityContext";
 import { WalletConnector } from "./components/WalletConnector";
 import { TransactionProvider } from "./components/Transaction";
@@ -49,7 +50,7 @@ const UnsupportedMainnetFallback: React.FC = () => (
       <Icon name="exclamation-triangle" /> This app is for testing purposes only.
     </Heading>
 
-    <Paragraph sx={{ mb: 3 }}>Please change your network to Görli.</Paragraph>
+    <Paragraph sx={{ mb: 3 }}>Please change your network to Görli or Sepolia.</Paragraph>
 
     <Paragraph>
       If you'd like to use the Liquity Protocol on mainnet, please pick a frontend{" "}
@@ -74,49 +75,101 @@ const UnsupportedNetworkFallback: React.FC = () => (
     <Heading sx={{ mb: 3 }}>
       <Icon name="exclamation-triangle" /> Liquity is not supported on this network.
     </Heading>
-    Please switch to mainnet or Görli.
+    Please switch to mainnet, Görli or Sepolia.
   </Flex>
 );
+
+const queryClient = new QueryClient();
+
+const appName = "Liquity";
+const appDescription = "Decentralized borrowing protocol";
 
 const App = () => {
   const config = useAsyncValue(getConfig);
   const loader = <AppLoader />;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeUIProvider theme={theme}>
       {config.loaded && (
-        <WagmiConfig
-          client={createClient(
-            getDefaultClient({
-              appName: "Liquity",
+        <WagmiProvider
+          config={createConfig(
+            getDefaultConfig({
+              appName,
+              appDescription,
+              walletConnectProjectId: config.value.walletConnectProjectId,
+
               chains:
                 isDemoMode || import.meta.env.MODE === "test"
                   ? [localhost]
                   : config.value.testnetOnly
-                  ? [goerli]
-                  : [mainnet, goerli],
-              walletConnectProjectId: config.value.walletConnectProjectId,
-              infuraId: config.value.infuraApiKey,
-              alchemyId: config.value.alchemyApiKey
+                  ? [goerli, sepolia]
+                  : [mainnet, goerli, sepolia],
+
+              connectors:
+                isDemoMode || import.meta.env.MODE === "test"
+                  ? [injected()]
+                  : getDefaultConnectors({
+                      app: {
+                        name: appName,
+                        description: appDescription
+                      },
+                      walletConnectProjectId: config.value.walletConnectProjectId
+                    }),
+
+              transports: {
+                [mainnet.id]: fallback([
+                  ...(config.value.infuraApiKey
+                    ? [http(`https://mainnet.infura.io/v3/${config.value.infuraApiKey}`)]
+                    : []),
+                  ...(config.value.alchemyApiKey
+                    ? [http(`https://eth-mainnet.g.alchemy.com/v2/${config.value.alchemyApiKey}`)]
+                    : []),
+                  http()
+                ]),
+
+                [goerli.id]: fallback([
+                  ...(config.value.infuraApiKey
+                    ? [http(`https://goerli.infura.io/v3/${config.value.infuraApiKey}`)]
+                    : []),
+                  ...(config.value.alchemyApiKey
+                    ? [http(`https://eth-goerli.g.alchemy.com/v2/${config.value.alchemyApiKey}`)]
+                    : []),
+                  http()
+                ]),
+
+                [sepolia.id]: fallback([
+                  ...(config.value.infuraApiKey
+                    ? [http(`https://sepolia.infura.io/v3/${config.value.infuraApiKey}`)]
+                    : []),
+                  ...(config.value.alchemyApiKey
+                    ? [http(`https://eth-sepolia.g.alchemy.com/v2/${config.value.alchemyApiKey}`)]
+                    : []),
+                  http()
+                ]),
+
+                [localhost.id]: http()
+              }
             })
           )}
         >
-          <ConnectKitProvider options={{ hideBalance: true }}>
-            <WalletConnector loader={loader}>
-              <LiquityProvider
-                loader={loader}
-                unsupportedNetworkFallback={<UnsupportedNetworkFallback />}
-                unsupportedMainnetFallback={<UnsupportedMainnetFallback />}
-              >
-                <TransactionProvider>
-                  <LiquityFrontend loader={loader} />
-                </TransactionProvider>
-              </LiquityProvider>
-            </WalletConnector>
-          </ConnectKitProvider>
-        </WagmiConfig>
+          <QueryClientProvider client={queryClient}>
+            <ConnectKitProvider options={{ hideBalance: true }}>
+              <WalletConnector loader={loader}>
+                <LiquityProvider
+                  loader={loader}
+                  unsupportedNetworkFallback={<UnsupportedNetworkFallback />}
+                  unsupportedMainnetFallback={<UnsupportedMainnetFallback />}
+                >
+                  <TransactionProvider>
+                    <LiquityFrontend loader={loader} />
+                  </TransactionProvider>
+                </LiquityProvider>
+              </WalletConnector>
+            </ConnectKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
       )}
-    </ThemeProvider>
+    </ThemeUIProvider>
   );
 };
 
