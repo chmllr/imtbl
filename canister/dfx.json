@@ -1,24 +1,24 @@
 {
-  "canisters": {
-    "imtbl": {
-      "candid": "src/imtbl/imtbl.did",
-      "package": "imtbl",
-      "type": "custom",
-      "wasm": "target/wasm32-unknown-unknown/release/imtbl.wasm.gz",
-      "build": "./build.sh imtbl"
-    }
-  },
-  "defaults": {
-    "build": {
-      "args": "",
-      "packtool": ""
-    }
-  },
-  "networks": {
-    "local": {
-      "bind": "127.0.0.1:8000",
-      "type": "ephemeral"
-    }
-  },
-  "version": 1
+    "canisters": {
+        "imtbl": {
+            "candid": "src/imtbl/imtbl.did",
+            "package": "imtbl",
+            "type": "custom",
+            "wasm": "target/wasm32-unknown-unknown/release/imtbl.wasm.gz",
+            "build": "./build.sh imtbl"
+        }
+    },
+    "defaults": {
+        "build": {
+            "args": "",
+            "packtool": ""
+        }
+    },
+    "networks": {
+        "local": {
+            "bind": "127.0.0.1:8000",
+            "type": "ephemeral"
+        }
+    },
+    "version": 1
 }

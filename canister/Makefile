@@ -1,3 +1,3 @@
 all:
 	./update_assets.sh
-	dfx build --network ic --all
+	~/.local/share/dfx/bin/dfx build --network ic --all
