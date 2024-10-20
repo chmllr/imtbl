@@ -7,6 +7,7 @@ import { useLiquitySelector } from "@liquity/lib-react";
 import { useLiquity } from "../hooks/LiquityContext";
 import { Statistic } from "./Statistic";
 import * as l from "../lexicon";
+import { CURRENT_CANISTER_ID } from "./WalletConnector";
 
 const GitHubCommit: React.FC<{ children?: string }> = ({ children }) =>
     children?.match(/[0-9a-f]{40}/) ? (
@@ -107,8 +108,10 @@ export const ImtblControls: React.FC<any> = ({ variant = "info" }) => {
                 <Box sx={{ fontSize: 0 }}>Deployed: {deploymentDate.toLocaleString()}</Box>
                 <Box sx={{ fontSize: 0 }}>
                     IC canister:{" "}
-                    <Link href="https://dashboard.internetcomputer.org/canister/vgbso-kaaaa-aaaap-ablqq-cai">
-                        vgbso-kaaaa-aaaap-ablqq-cai
+                    <Link
+                        href={`https://dashboard.internetcomputer.org/canister/${CURRENT_CANISTER_ID}`}
+                    >
+                        ${CURRENT_CANISTER_ID}
                     </Link>
                 </Box>
                 <Box sx={{ fontSize: 0 }}>

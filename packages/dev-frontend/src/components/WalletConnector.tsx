@@ -3,8 +3,10 @@ import { Box, Button, Flex } from "theme-ui";
 import { Icon } from "./Icon";
 
 type WalletConnectorProps = React.PropsWithChildren<{
-  loader?: React.ReactNode;
+    loader?: React.ReactNode;
 }>;
+
+export const CURRENT_CANISTER_ID = "gx7ng-kaaaa-aaaap-akpmq-cai";
 
 export const WalletConnector: React.FC<WalletConnectorProps> = ({ children }) => {
     return (
@@ -16,7 +18,7 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children }) =>
                     <Flex sx={{ height: "100vh", justifyContent: "center", alignItems: "center" }}>
                         <div style={{ display: "flex", maxWidth: "70%", flexDirection: "column" }}>
                             <h1 style={{ textAlign: "center", fontFamily: "Impact, sans-serif" }}>
-                                IMTBL <span style={{ opacity: 0.5 }}>V2</span>
+                                IMTBL Frontend <span style={{ opacity: 0.5 }}>V3</span>
                             </h1>
                             <Box sx={{ textAlign: "center" }}>
                                 A fully <b>immutable</b>{" "}
@@ -24,7 +26,7 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children }) =>
                                     style={{ textDecoration: "none", color: "#28c081" }}
                                     href="https://liquity.org"
                                 >
-                                    Liquity
+                                    Liquity V1
                                 </a>{" "}
                                 frontend running on the{" "}
                                 <a
@@ -58,14 +60,14 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children }) =>
                                     &nbsp;&bull;&nbsp;
                                     <a
                                         style={{ textDecoration: "none", color: "#28c081" }}
-                                        href="https://dashboard.internetcomputer.org/canister/vgbso-kaaaa-aaaap-ablqq-cai"
+                                        href={`https://dashboard.internetcomputer.org/canister/${CURRENT_CANISTER_ID}`}
                                     >
                                         Hash
                                     </a>
                                     &nbsp;&bull;&nbsp;
                                     <a
                                         style={{ textDecoration: "none", color: "#28c081" }}
-                                        href="https://vgbso-kaaaa-aaaap-ablqq-cai.icp0.io"
+                                        href={`https://${CURRENT_CANISTER_ID}.icp0.io`}
                                     >
                                         Direct Link
                                     </a>
@@ -75,6 +77,13 @@ export const WalletConnector: React.FC<WalletConnectorProps> = ({ children }) =>
                                         href="https://vfu7d-vyaaa-aaaap-aajiq-cai.icp0.io"
                                     >
                                         V1
+                                    </a>
+                                    &nbsp;&bull;&nbsp;
+                                    <a
+                                        style={{ textDecoration: "none", color: "#28c081" }}
+                                        href="https://vgbso-kaaaa-aaaap-ablqq-cai.icp0.io"
+                                    >
+                                        V2
                                     </a>
                                 </div>
                                 {Number(new Date()) < 1698796800000 && (
